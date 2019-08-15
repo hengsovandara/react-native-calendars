@@ -336,7 +336,7 @@ class ExpandableCalendar extends Component {
   onDayPress = (value) => { // {year: 2019, month: 4, day: 22, timestamp: 1555977600000, dateString: "2019-04-23"}
     _.invoke(this.props.context, 'setDate', value.dateString, UPDATE_SOURCES.DAY_PRESS);
 
-    if (!this.props.disablePanOnDayTouch)
+    if (this.props.disablePanOnDayTouch)
       setTimeout(() => { // to allows setDate to be completed
         if (this.state.position === POSITIONS.OPEN) {
           this.bounceToPosition(this.closedHeight);
